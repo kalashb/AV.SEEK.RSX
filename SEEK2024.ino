@@ -45,7 +45,8 @@ Serial.begin(9600);
 }
 
 void loop() {
- Sweep();
+Sweep();
+//myServo.write(90);
 }
 
 void forward(){
@@ -99,12 +100,16 @@ double getDistance(void){
 void Sweep(void){
   for (int pos = 0; pos <= 180; pos += 1){
     // in steps of 1 degree
-    myServo.write(pos);              
-    delay(25);                       
+    myServo.write(pos);
+    getDistance();
+    Serial.println(distance);
+    delay(25);        
   }
   delay(100);
   for (int pos = 180; pos >= 0; pos -= 1){ 
     myServo.write(pos);              
+    getDistance();
+    Serial.println(distance);
     delay(25);         
 }
   delay(100);
