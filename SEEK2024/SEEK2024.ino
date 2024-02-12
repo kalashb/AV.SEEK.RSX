@@ -85,7 +85,6 @@ int IRinput(void){
   return digitalRead(IR);
 }
 
-
 double getDistance(void){
   digitalWrite(Trig,LOW);
   delayMicroseconds(2);
